@@ -31,6 +31,12 @@ const entertainmentParagraph = document.querySelector(
   ".entertainment-paragraph"
 );
 
+function toTitleCase(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
+
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
   budgetDb.budget = document.querySelector("#amount").value;
@@ -51,19 +57,26 @@ costForm.addEventListener("submit", (e) => {
   totalBudget.textContent = `Total Weekly Budget: $${budgetDb.balanceLeft}`;
   budgetDb.totalSpent = budgetDb.totalSpent + newExpense.cost;
   totalSpent.textContent = `Total Spent this Week: $${budgetDb.totalSpent}`;
-  if (newExpense.category === "bills") {
-    budgetDb.bills = budgetDb.bills + newExpense.cost;
-    billsParagraph.textContent = `Total Spent on Bills: $${budgetDb.bills}`;
-  } else if (newExpense.category === "food") {
-    budgetDb.food = budgetDb.food + newExpense.cost;
-    foodParagraph.textContent = `Total Spent on Food: $${budgetDb.food}`;
-  } else if (newExpense.category === "clothing") {
-    budgetDb.clothing = budgetDb.clothing + newExpense.cost;
-    clothingParagraph.textContent = `Total Spent on Clothing: $${budgetDb.clothing}`;
-  } else {
-    budgetDb.entertainment = budgetDb.entertainment + newExpense.cost;
-    entertainmentParagraph.textContent = `Total Spent on Entertainment: $${budgetDb.entertainment}`;
-  }
+  // if (newExpense.category === "bills") {
+  //   budgetDb.bills = budgetDb.bills + newExpense.cost;
+  //   billsParagraph.textContent = `Total Spent on Bills: $${budgetDb.bills}`;
+  // } else if (newExpense.category === "food") {
+  //   budgetDb.food = budgetDb.food + newExpense.cost;
+  //   foodParagraph.textContent = `Total Spent on Food: $${budgetDb.food}`;
+  // } else if (newExpense.category === "clothing") {
+  //   budgetDb.clothing = budgetDb.clothing + newExpense.cost;
+  //   clothingParagraph.textContent = `Total Spent on Clothing: $${budgetDb.clothing}`;
+  // } else {
+  //   budgetDb.entertainment = budgetDb.entertainment + newExpense.cost;
+  //   entertainmentParagraph.textContent = `Total Spent on Entertainment: $${budgetDb.entertainment}`;
+  // }
+  budgetDb[category] += cost;
+  document.querySelector(
+    `.${category}-paragraph`
+  ).textContent = `Total Spent on ${toTitleCase(category)}: $${
+    budgetDb[category]
+  }`;
+
   if (budgetDb.balanceLeft < newExpense.cost) {
     alert("Out of money!");
   }
