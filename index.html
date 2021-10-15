@@ -21,8 +21,8 @@
       <form class="cost-form">
         <label for="item">Item Purchased</label>
         <input type="text" name="item" id="item" />
-        <label for="catagory">Choose a catagory</label>
-        <select name="catagory" id="catagory">
+        <label for="category">Choose a category</label>
+        <select name="category" id="category">
           <option value="entertainment" id="entertainment">
             Entertainment
           </option>
@@ -34,7 +34,12 @@
         <input type="number" name="cost" id="cost" />
         <button>Add Expense</button>
       </form>
-      <p class="total-weekly">Total Spent this Week: $0.00</p>
+      <p class="total-spent">Total Spent this Week: $0.00</p>
+      <p class="bills-paragraph">Total Spent on Bills: $0.00</p>
+      <p class="food-paragraph">Total Spent on Food: $0.00</p>
+      <p class="clothing-paragraph">Total Spent on Clothing: $0.00</p>
+      <p class="entertainment-paragraph">Total Spent on Entertainment: $0.00</p>
+      <table class="expenses-container"></table>
     </main>
     <script src="script.js"></script>
   </body>
