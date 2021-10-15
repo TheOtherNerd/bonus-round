@@ -64,12 +64,9 @@ costForm.addEventListener("submit", (e) => {
     budgetDb.entertainment = budgetDb.entertainment + newExpense.cost;
     entertainmentParagraph.textContent = `Total Spent on Entertainment: $${budgetDb.entertainment}`;
   }
-
-  // budgetDb.bills = document.querySelector("#bills").value;
-  // budgetDb.food = document.querySelector("#food").value;
-  // budgetDb.clothing = document.querySelector("#clothing").value;
-  // budgetDb.entertainment = document.querySelector("#entertainment").value;
-  // console.log(budgetDb.bills);
+  if (budgetDb.balanceLeft < newExpense.cost) {
+    alert("Out of money!");
+  }
 });
 
 const displayExpenses = () => {
