@@ -56,6 +56,10 @@ costForm.addEventListener("submit", (e) => {
   let newExpense = { item, category, cost };
   budgetDb.expenses.push(newExpense);
   displayExpenses();
+  if (budgetDb.balanceLeft < newExpense.cost) {
+    // alert("Out of money!");
+    alertContainer.classList.remove("hide");
+  }
   budgetDb.balanceLeft = budgetDb.balanceLeft - newExpense.cost;
   totalBudget.textContent = `Total Weekly Budget: $${budgetDb.balanceLeft}`;
   budgetDb.totalSpent = budgetDb.totalSpent + newExpense.cost;
@@ -79,11 +83,6 @@ costForm.addEventListener("submit", (e) => {
   ).textContent = `Total Spent on ${toTitleCase(category)}: $${
     budgetDb[category]
   }`;
-
-  if (budgetDb.balanceLeft < newExpense.cost) {
-    // alert("Out of money!");
-    alertContainer.classList.remove("hide");
-  }
 });
 
 const displayExpenses = () => {

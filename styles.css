@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .expenses-container {
   border: 1px solid black;
   background-color: #ebd4d1;
@@ -27,6 +31,12 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#category {
+  padding: 5px;
+  border-radius: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .table-header {
   text-align: center;
   color: #ebd4d1;
@@ -41,6 +51,11 @@ body {
   align-items: center;
   justify-content: center;
   padding: 5px;
+  margin-top: 5px;
+}
+
+.budget-form button {
+  background-color: #fdeaec;
 }
 
 .cost-form {
@@ -53,7 +68,7 @@ body {
 .totals {
   background-color: #dbd3c9;
   padding: 5px;
-  margin: 5px;
+  margin-top: 5px;
 }
 
 .total-spent {
@@ -64,6 +79,7 @@ body {
 button {
   padding: 5px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #a9c6b0;
 }
 
 option {
