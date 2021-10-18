@@ -27,6 +27,11 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.table-header {
+  text-align: center;
+  color: #ebd4d1;
+}
+
 .budget-form {
   background-color: #fad4d8;
   display: flex;
