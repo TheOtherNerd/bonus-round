@@ -30,6 +30,8 @@ const clothingParagraph = document.querySelector(".clothing-paragraph");
 const entertainmentParagraph = document.querySelector(
   ".entertainment-paragraph"
 );
+const alertContainer = document.querySelector(".alert-container");
+const close = document.querySelector(".close");
 
 function toTitleCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
@@ -42,6 +44,7 @@ budgetForm.addEventListener("submit", (e) => {
   budgetDb.budget = document.querySelector("#amount").value;
   budgetDb.balanceLeft = budgetDb.budget;
   totalBudget.textContent = `Total Weekly Budget: $${budgetDb.balanceLeft}`;
+  budgetForm.classList.add("hide");
 });
 
 costForm.addEventListener("submit", (e) => {
@@ -78,7 +81,8 @@ costForm.addEventListener("submit", (e) => {
   }`;
 
   if (budgetDb.balanceLeft < newExpense.cost) {
-    alert("Out of money!");
+    // alert("Out of money!");
+    alertContainer.classList.remove("hide");
   }
 });
 
@@ -103,3 +107,7 @@ const displayExpenses = () => {
 };
 
 displayExpenses();
+
+close.addEventListener("click", (e) => {
+  alertContainer.classList.add("hide");
+});
